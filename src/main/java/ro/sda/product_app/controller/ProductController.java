@@ -1,9 +1,6 @@
 package ro.sda.product_app.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ro.sda.product_app.dto.Product;
 import ro.sda.product_app.service.ProductService;
 
@@ -26,4 +23,14 @@ private ProductService productService;
     public List<Product> findAll(){
         return productService.findAll();
     }
+    @GetMapping("/products")
+    public List<Product> findPriceGreaterThan(@RequestParam int price){
+        return productService.findProductsWithPriceGraterThen(price);
+    }
+@GetMapping("/product/{id}")
+    public Product findById(@PathVariable int id){
+        return productService.findByID(id);
+    }
+
+
 }

@@ -12,4 +12,9 @@ public interface ProductRepository extends JpaRepository<Product,Integer> {
     Optional<Product> findByName(String name);
 
     List<Product> findAllByPriceGreaterThan(int price);
+
+
 }
+
+
+
